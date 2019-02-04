@@ -1,0 +1,15 @@
+<a class="col-9 col-sm-6 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner-course' partner.slugName course.slugTitle %}">
+    <div class="card">
+      <!-- <img class="card-img-top" src="{% with 'images/partners/'|add:course.image as courseImg %}{% static courseImg%}{% endwith %}"> -->
+      <img class="card-img-top" src="{{ course.course.course_image_url }}">
+      <div class="card-body position-relative">
+        <h5 class="card-title text-bold cerulean line-hide-2 font-1">{{course.course.display_name}}</h5>
+        <p class="card-text position-absolute fixed-bottom">
+            {% if course.is_starting %}
+                Starting {{course.course.start}}
+            {% else %}
+                On-Going
+            {% endif %}</p>
+      </div>
+    </div>
+</a>

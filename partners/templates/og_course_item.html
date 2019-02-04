@@ -1,0 +1,15 @@
+{% load static %}
+<a class="col-9 col-sm-6 col-md-4 course-item mb-3 mx-auto" href="{% url 'course' partner.slugName course.slugTitle %}">
+    <div class="card">
+      <img class="card-img-top" src="{% with 'images/'|add:course.image as courseImg %}{% static courseImg%}{% endwith %}">
+      <div class="card-body position-relative">
+        <h5 class="card-title text-bold cerulean line-hide-2 font-1">{{course.title}}</h5>
+        <p class="card-text position-absolute fixed-bottom">
+            {% if course.is_starting %}
+                Starting {{course.date_starting}}
+            {% else %}
+                On-Going
+            {% endif %}</p>
+      </div>
+    </div>
+</a>

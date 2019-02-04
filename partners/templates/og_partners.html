@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Making quality education and life long learning more accessible and affordable in the Philippines.">
+        <meta name="keywords" content="Quality education,affordable,accessible,learn,Philippines">
+        <meta name="author" content="Coursebank">
+        {% load static %}
+        <link rel="icon" href="{% static 'favicon.ico'%}">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        {% load cache_bust %}
+        <link rel="stylesheet" href="{% static "css/partners.css"%}?{% cache_bust %}">
+        <title>CourseBank</title>
+    </head>
+    <body class="pb-0">
+        <nav id="header" class="navbar navbar-expand-lg sticky-top px-4 navbar-secondary border-bottom">
+            <a class="navbar-brand" href="#"><img id="logo" src="{% static "images/Coursebank%20Logo%20-%20Main.png"%}"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <div class="collapse navbar-collapse py-2" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li><a class="nav-link mx-lg-5 px-2" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a></li>
+                    <li><a class="nav-link mx-lg-5 px-2" href="#">Partners</a></li>
+                    <li class="parent-that-centers-vertically"><label class="border-spacing-right d-none d-md-none d-lg-block d-xl-block mx-5 mb-0 h-75">&nbsp;</label></li>
+                    <li><a class="nav-link waves-effect waves-light px-2 mx-lg-5 text-nowrap" href="#">Log In</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="mx-auto">
+            <div id="partnerheader" class="position-relative fluid-container">
+                <img class="w-100" src="{% static "images/banner-pwc.png"%}" height="200"/>
+                <div class="align-middle position-absolute fixed-bottom w-100 d-flex align-items-end">
+                    <img class="rounded-circle bg-white float-left mx-auto mx-sm-0" src="{% static "images/logo-pwc.png"%}" width="200"/>
+                    <hr class="d-block d-sm-none">
+                    <h1 class="display-4 float-left ml-1 ml-md-3 mr-5 fixed">{{partner.name}}</h1>
+                </div>
+            </div>
+            <br>
+            <p class="text-justify px-5 px-sm-0">{{partner.description}}</p>
+            <p class="text-center mt-md-5 mt-5"><strong>COURSES</strong></p>
+            <hr class="w-60">
+            <div class="container row mb-md-5 mb-3 mx-auto">
+                {% if courseObjList %}
+                    {% for course in courseObjList %}
+                        {% include "course_item.html" %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <p class="text-center"><strong>EXPERTS</strong></p>
+            <hr class="w-60">
+            <div class="container row mt-md-5 mt-3 mx-auto">
+                {% if advisorObjList %}
+                    {% for advisor in advisorObjList %}
+                        {% include "advisor_item.html" %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <footer class="p-4 bg-bahamablue text-white">
+            <div class="fluid-container text-center text-lg-left">
+                <div class="row mb-lg-5">
+                    <div class="col-md-4 col-lg-2 mx-auto">
+                        <h5 class="font-weight-bold text-uppercase">ABOUT US</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Who We Are</a>
+                            </li>
+                            <li>
+                                <a href="#!">Careers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="clearfix w-100 d-lg-none">
+                    <div class="col-md-4 col-lg-3 mx-auto">
+                        <h5 class="font-weight-bold text-uppercase">CONNECT WITH US</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#!">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="clearfix w-100 d-lg-none">
+                    <div class="col mx-auto text-lg-right text-center">
+                        <img id="logo-footer" class="mb-2 mx-0" src="{% static "images/Coursebank%20Logo%20-%20White.png"%}">
+                        <p class="mb-lg-4 mb-0">© 2018 Coursebank</p>
+                    </div>
+                </div>
+                <hr class="d-lg-none">
+                <div class="row">
+                    <div class="col">
+                        <ul class="list-unstyled list-inline text-center d-inline float-lg-left mx-auto">
+                            <li class="list-inline-item mb-1 mr-0">
+                                <a href="#!" class="font-weight-bold mr-0 mr-md-5 mr-sm-3 font-1-2 text-white">Pre-Register Now</a>
+                            </li>
+                            <li class="list-inline-item mr-0"><label class="border-spacing-right h-75 d-sm-block d-none">&nbsp;</label></li>
+                            <li class="list-inline-item mr-0 d-block d-sm-none"></li>
+                            <li class="list-inline-item ml-0 ml-md-5 ml-sm-3">
+                                <a href="#!" class="btn bg-white btn-rounded bahamablue font-weight-bold px-2 py-0 cerulean">Become a Partner</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr class="w-100 d-lg-none">
+                    <div class="col-lg-4 col-12">
+                        <ul class="list-unstyled list-inline text-center font-1-5 mb-0 d-inline float-lg-right float-center">
+                            <li class="list-inline-item">
+                                <a href="#" class="btn-floating btn-fb mx-1">
+                                    <i class="fab fa-facebook text-white"> </i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="{% static "js/partners.js"%}"></script>
+        <script src="{% static "js/holder.min.js"%}"></script>
+        <script src="{% static "js/ie10-viewport-bug-workaround.js"%}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

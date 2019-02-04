@@ -1,0 +1,12 @@
+{% load static %}
+<a class="col-8 col-sm-6 col-md-4 advisor mb-3 mx-auto" href="#">
+    <div class="card border-0">
+      <img class="rounded-circle mx-auto" src="{% with 'images/'|add:advisor.profilePic as image_static %}
+  {% static image_static %}
+{% endwith %}" height="150" width="150">
+      <div class="card-body">
+        <h5 class="card-title text-bold cerulean line-hide-2">{{advisor.name}}</h5>
+        <p class="card-text">{{advisor.position}}</p>
+      </div>
+    </div>
+</a>
