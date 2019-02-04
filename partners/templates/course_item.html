@@ -3,10 +3,10 @@
       <!-- <img class="card-img-top" src="{% with 'images/partners/'|add:course.image as courseImg %}{% static courseImg%}{% endwith %}"> -->
       <img class="card-img-top" src="{{ course.course.course_image_url }}">
       <div class="card-body position-relative">
-        <h5 class="card-title text-bold cerulean line-hide-2 font-1">{{course.course.display_name}}</h5>
+        <h5 class="card-title text-bold cerulean line-hide-2 font-1">{{course.display_name}}</h5>
         <p class="card-text position-absolute fixed-bottom">
-            {% if course.is_starting %}
-                Starting {{course.course.start}}
+            {% if date_today < course.start %}
+                Starting {{course.start_display}}
             {% else %}
                 On-Going
             {% endif %}</p>

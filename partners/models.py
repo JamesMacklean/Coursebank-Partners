@@ -5,17 +5,18 @@ from datetime import date
 from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
 
 class Partner(models.Model):
+    org = models.TextField(max_length=255, help_text='organization short name ex. OrgX used when creating courses')
     name = models.CharField(max_length=75,default='No name',unique=True)
     slugName = models.SlugField(max_length=75,editable=False, default=slugify(name),unique=True)
     description = models.CharField(max_length=500,default='No description set.')
     logo = models.ImageField(
         upload_to='partners',
-        help_text=_('Please add only .PNG files for logo images. This logo will be used on partner pages.'),
+        help_text='Please add only .PNG files for logo images. This logo will be used on partner pages.',
         null=True, blank=True, max_length=255
         )
     banner = models.ImageField(
         upload_to='partners',
-        help_text=_('Please add only .PNG files for banner images. This banner will be used on partner pages.'),
+        help_text='Please add only .PNG files for banner images. This banner will be used on partner pages.',
         null=True, blank=True, max_length=255
         )
     is_active = models.BooleanField(default=True)
@@ -25,15 +26,11 @@ class Partner(models.Model):
         super(Partner, self).save(*args, **kwargs)
 
 class PartnerCourse(models.Model):
-    course = models.ForeignKey(
-        CourseOverview,
-        on_delete=models.CASCADE
-    )
+    course = models.CharField(max_length=255,primary_key=True)
     partner = models.ForeignKey(
-    'Partner',
-    on_delete=models.CASCADE,
-    null=True, blank=True
-    )
+        'Partner',
+        on_delete=models.CASCADE
+        )
     is_active = models.BooleanField(default=True)
 
     # title = models.CharField(max_length=75,default='Course title',unique=True)
