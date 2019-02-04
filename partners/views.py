@@ -9,10 +9,10 @@ from datetime import date
 
 import requests
 
-def PartnersView(request):
+# def PartnersView(request):
     #CoursesList = Course.objects.order_by('-rank')[:3]
     #context = {'landObjList':landObjList,'partnerObjList':partnerObjList}
-    return render(request, 'partners.html')
+    # return render(request, 'partners.html')
 
 def PartnerView(request,partner_name):
     partner = get_object_or_404(Partner, slugName=partner_name)
@@ -22,7 +22,7 @@ def PartnerView(request,partner_name):
     advisors = Advisor.objects.filter(partner=partner)
     courses = CourseOverview.get_all_courses(orgs=[partner.org])
 
-    return render(request, 'partners.html', {'partner': partner,  'courses':courses, 'advisors':advisors, date_today':date.today})
+    return render(request, 'partners.html', {'partner': partner,  'courses':courses, 'advisors':advisors, 'date_today':date.today})
 
 # def CourseView(request,partner_name,course_name):
 #     course = get_object_or_404(Course, slugTitle=course_name)

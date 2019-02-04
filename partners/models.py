@@ -25,6 +25,9 @@ class Partner(models.Model):
         self.slugName = slugify(self.name)
         super(Partner, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return self.name
+
 class PartnerCourse(models.Model):
     course = models.CharField(max_length=255,primary_key=True)
     partner = models.ForeignKey(
@@ -50,6 +53,9 @@ class PartnerCourse(models.Model):
     def is_starting(self):
         return date.today() < self.course.start
 
+    def __str__(self):
+        return self.course
+
     # def save(self, *args, **kwargs):
     #     self.slugTitle = slugify(self.title)
     #     super(Course, self).save(*args, **kwargs)
@@ -64,3 +70,6 @@ class Advisor(models.Model):
         on_delete=models.CASCADE,
         default=-1
     )
+
+    def __str__(self):
+        return self.name
