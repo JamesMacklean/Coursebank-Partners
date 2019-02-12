@@ -29,9 +29,13 @@ class Partner(models.Model):
         return self.name
 
 class PartnerCourse(models.Model):
-    course = models.CharField(max_length=255,primary_key=True)
+    course_id = models.CharField(max_length=255,primary_key=True)
     partner = models.ForeignKey(
         'Partner',
+        on_delete=models.CASCADE
+        )
+    experts = models.ManyToMany(
+        'Expert',
         on_delete=models.CASCADE
         )
     is_active = models.BooleanField(default=True)
@@ -51,7 +55,11 @@ class PartnerCourse(models.Model):
 
     @property
     def is_starting(self):
-        return date.today() < self.course.start
+        get_course = CourseOverview.objects.filter(id=self.course)
+        if get_course is not None:
+            return date.today() < get_course.start
+        else:
+            return None
 
     def __str__(self):
         return self.course
@@ -60,11 +68,15 @@ class PartnerCourse(models.Model):
     #     self.slugTitle = slugify(self.title)
     #     super(Course, self).save(*args, **kwargs)
 
-class Advisor(models.Model):
+class Expert(models.Model):
     name = models.CharField(max_length=75,default='No name')
     description = models.CharField(max_length=500,default='No description set.')
-    position = models.CharField(max_length=30,default='Advisor')
-    profilePic = models.CharField(max_length=25)
+    position = models.CharField(max_length=30,default='Expert')
+    profilePic = models.ImageField(
+        upload_to='partners',
+        help_text='Please add only .PNG files for profile images. This image will be used on partner pages.',
+        null=True, blank=True, max_length=255
+        )
     partner = models.ForeignKey(
         'Partner',
         on_delete=models.CASCADE,

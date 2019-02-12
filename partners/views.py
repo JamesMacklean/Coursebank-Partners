@@ -1,5 +1,5 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Partner,PartnerCourse,Advisor
+from .models import Partner, PartnerCourse, Expert
 from django.utils.text import slugify
 from django.http import Http404
 
@@ -9,25 +9,38 @@ from datetime import date
 
 import requests
 
-# def PartnersView(request):
-    #CoursesList = Course.objects.order_by('-rank')[:3]
-    #context = {'landObjList':landObjList,'partnerObjList':partnerObjList}
-    # return render(request, 'partners.html')
+def PartnersCatalogView(request):
+    """ renders all partners in main partners page """
+    partners = Partner.objects.all()
+    context = {'partners': partners}
+    return render(request, 'partners.html', context)
 
 def PartnerView(request,partner_name):
+    """ renders partner and corresponding experts and courses in its own partner page """
     partner = get_object_or_404(Partner, slugName=partner_name)
-    if not partner:
-        raise Http404
-    # courses = PartnerCourse.objects.filter(partner=partner)
-    advisors = Advisor.objects.filter(partner=partner)
+    experts = Expert.objects.filter(partner=partner)
     courses = CourseOverview.get_all_courses(orgs=[partner.org])
+    context = {'partner': partner,  'courses':courses, 'experts':experts}
+    return render(request, 'partner.html', context)
 
-    return render(request, 'partners.html', {'partner': partner,  'courses':courses, 'advisors':advisors, 'date_today':date.today})
+def PartnerCourseView(request,partner_name,course_id):
+    """ renders course in its own course page """
+    partner = get_object_or_404(Partner, slugName=partner_name)
+    course = CourseOverview.get_from_id(course_id)
+    context = {'partner': partner, 'course': course}
+    return render(request, 'partner_course.html', context)
 
-# def CourseView(request,partner_name,course_name):
-#     course = get_object_or_404(Course, slugTitle=course_name)
-#     return render(request, 'partners.html', {'course': course})
-#
-# def AdvisorView(request,partner_name,advisor_id):
-#     advisor = get_object_or_404(Advisor, pk=advisor_id)
-#     return render(request, 'partners.html', {'advisor': advisor})
+def ExpertView(request,partner_name,expert_id):
+    """ renders expert in its own expert page """
+    partner = get_object_or_404(Partner, slugName=partner_name)
+    expert = get_object_or_404(Expert, pk=expert_id)
+    partner_courses = PartnerCourse.objects.filter(experts=expert)
+    courses = []
+    for partner_course in partner_courses:
+        course = CourseOverview.objects.get(id=partner_course.course_id)
+        courses.append(course)
+    context = {'partner': partner, 'expert': expert, 'courses': courses}
+    return render(request, 'expert.html', context)
+
+# get list of all existing course ids
+# list_of_all_course_ids = CourseOverview.get_all_course_keys()

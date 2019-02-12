@@ -1,15 +1,15 @@
-<a class="col-9 col-sm-6 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner-course' partner.slugName course.slugTitle %}">
+<!-- <a class="col-9 col-sm-6 col-md-4 course-item mb-3 mx-auto" href="{% url 'about_course' course_id=course.id %}"> -->
+<a class="col-9 col-sm-6 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner-course' partner_name=course.partner.slugName course_id=course.id %}">
     <div class="card">
-      <!-- <img class="card-img-top" src="{% with 'images/partners/'|add:course.image as courseImg %}{% static courseImg%}{% endwith %}"> -->
       <img class="card-img-top" src="{{ course.course_image_url }}">
       <div class="card-body position-relative">
         <h5 class="card-title text-bold cerulean line-hide-2 font-1">{{course.display_name}}</h5>
         <p class="card-text position-absolute fixed-bottom">
-            <!-- {% if course.start > date_today %} -->
-                Starting {{course.start_display}}
-            <!-- {% else %} -->
-                <!-- On-Going -->
-            <!-- {% endif %} -->
+            {% if course.start_display != None %}
+              Starts: {{course.start_display}}
+            {% else %}
+              Starts: {{course.start}}
+            {% endif %}
         </p>
       </div>
     </div>
