@@ -5,20 +5,19 @@ from datetime import date
 from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
 
 class Partner(models.Model):
-    org = models.TextField(max_length=255, help_text='organization short name ex. OrgX used when creating courses')
+    org = models.TextField(max_length=255,
+        help_text='organization short name ex. OrgX used when creating courses')
     name = models.CharField(max_length=75,default='No name',unique=True)
     slugName = models.SlugField(max_length=75,editable=False, default=slugify(name),unique=True)
     description = models.CharField(max_length=500,default='No description set.')
     logo = models.ImageField(
         upload_to='partners',
         help_text='Please add only .PNG files for logo images. This logo will be used on partner pages.',
-        null=True, blank=True, max_length=255
-        )
+        null=True, blank=True, max_length=255)
     banner = models.ImageField(
         upload_to='partners',
         help_text='Please add only .PNG files for banner images. This banner will be used on partner pages.',
-        null=True, blank=True, max_length=255
-        )
+        null=True, blank=True, max_length=255)
     is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
@@ -32,11 +31,15 @@ class PartnerCourse(models.Model):
     course_id = models.CharField(max_length=255,primary_key=True)
     partner = models.ForeignKey(
         'Partner',
+        related_name='partner_course',
+        help_text='partner/organization associated with this course',
         on_delete=models.CASCADE
         )
     experts = models.ManyToManyField(
-        'Expert'
-        )
+        'Expert',
+        related_name='partner_course',
+        help_text='Experts that facilitate this course',
+        blank=True)
     is_active = models.BooleanField(default=True)
 
     # title = models.CharField(max_length=75,default='Course title',unique=True)
@@ -74,13 +77,12 @@ class Expert(models.Model):
     profilePic = models.ImageField(
         upload_to='partners',
         help_text='Please add only .PNG files for profile images. This image will be used on partner pages.',
-        null=True, blank=True, max_length=255
-        )
+        null=True, blank=True, max_length=255)
     partner = models.ForeignKey(
         'Partner',
-        on_delete=models.CASCADE,
-        default=-1
-    )
+        related_name='expert',
+        help_text='partner/organization associated with this expert',
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
