@@ -21,7 +21,7 @@
     <p class="text-center mt-md-5 mt-5"><strong>Experts</strong></p>
     <hr class="w-60">
     <div class="container row mb-md-5 mb-3 mx-auto">
-        {% for expert in experts %}
+        {% for expert in partner_course.experts.all %}
             {% include "expert_item.html" %}
         {% endfor %}
     </div>

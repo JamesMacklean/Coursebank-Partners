@@ -34,9 +34,8 @@ class PartnerCourse(models.Model):
         'Partner',
         on_delete=models.CASCADE
         )
-    experts = models.ManyToMany(
-        'Expert',
-        on_delete=models.CASCADE
+    experts = models.ManyToManyField(
+        'Expert'
         )
     is_active = models.BooleanField(default=True)
 
@@ -55,14 +54,14 @@ class PartnerCourse(models.Model):
 
     @property
     def is_starting(self):
-        get_course = CourseOverview.objects.filter(id=self.course)
+        get_course = CourseOverview.objects.filter(id=self.course_id)
         if get_course is not None:
             return date.today() < get_course.start
         else:
             return None
 
     def __str__(self):
-        return self.course
+        return self.course_id
 
     # def save(self, *args, **kwargs):
     #     self.slugTitle = slugify(self.title)
