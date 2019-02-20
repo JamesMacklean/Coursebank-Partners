@@ -1,9 +1,15 @@
 {% extends "main_django.html" %}
 
 {% block body %}
+{% if not user.is_authenticated %}
+<br>
+<br>
+<br>
+<br>
+{% endif %}
 <div class="bootstrap-iso">
   <div class="mx-auto">
-      <div id="partnerheader" class="position-relative fluid-container">
+      <div id="partnerheader" class="partnerheader position-relative fluid-container">
         {% if partner.banner %}
           <img class="w-100" src="{{partner.banner.url}}" height="200"/>
         {% else %}
@@ -22,7 +28,7 @@
       <br>
       <p class="text-justify px-5 px-sm-0">{{partner.description}}</p>
       <p class="text-center mt-md-5 mt-5"><strong>COURSES</strong></p>
-      <hr class="w-60">
+      <hr class="w-60 mx-auto">
       <div class="container row mb-md-5 mb-3 mx-auto">
           {% if courses %}
               {% for course in courses %}
@@ -31,7 +37,7 @@
           {% endif %}
       </div>
       <p class="text-center"><strong>EXPERTS</strong></p>
-      <hr class="w-60">
+      <hr class="w-60 mx-auto">
       <div class="container row mt-md-5 mt-3 mx-auto">
           {% if experts %}
               {% for expert in experts %}

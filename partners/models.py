@@ -5,11 +5,13 @@ from datetime import date
 from openedx.core.djangoapps.content.course_overviews.models import CourseOverview
 
 class Partner(models.Model):
-    org = models.TextField(max_length=255,
-        help_text='organization short name ex. OrgX used when creating courses')
-    name = models.CharField(max_length=75,default='No name',unique=True)
-    slugName = models.SlugField(max_length=75,editable=False, default=slugify(name),unique=True)
-    description = models.CharField(max_length=500,default='No description set.')
+    org = models.CharField(
+        max_length=255,
+        help_text='organization short name ex. OrgX used when creating courses',
+        unique=True)
+    name = models.CharField(max_length=255,default='No name')
+    slugName = models.SlugField(max_length=255,editable=False, default=slugify(name),unique=True)
+    description = models.TextField(default='No description set.')
     logo = models.ImageField(
         upload_to='partners',
         help_text='Please add only .PNG files for logo images. This logo will be used on partner pages.',

@@ -2,7 +2,7 @@
     <div class="card">
       <img class="card-img-top" src="{{ course.courseoverview.course_image_url }}">
       <div class="card-body position-relative">
-        <h5 class="card-title text-bold cerulean line-hide-2 font-1">{{course.courseoverview.display_name}}</h5>
+        <h5 class="card-title text-bold cerulean line-hide-2 font-1 text-center">{{course.courseoverview.display_name}}</h5>
         <p class="card-text position-absolute fixed-bottom">
             {% if course.courseoverview.start_display != None %}
               Starts: {{course.courseoverview.start_display}}

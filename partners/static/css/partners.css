@@ -116,7 +116,7 @@ body > div > div.container.row.mb-md-5.mb-3 > a > div:hover {
     body > div > div:nth-child(6) > a > div > img {height:8rem}
 }
 
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
     .course, .course-img{min-height: 30vh;max-height: 30vh; width:50vw;}
     body > div{width:70%!important}
     #partnerheader > img {height:150px}

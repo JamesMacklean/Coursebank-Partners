@@ -1,21 +1,27 @@
 {% extends "main_django.html" %}
 
-{% block body %}
+{% block body %0}
+{% if not user.is_authenticated %}
+<br>
+<br>
+<br>
+<br>
+{% endif %}
 <div class="bootstrap-iso">
   <div class="mx-auto">
-    <div id="partnerscatalogheader" class="position-relative fluid-container">
+    <div id="partnerscatalogheader" class="container-custom tint mb-5">
         <img class="w-100" src="" height="200">
-        <div class="align-middle position-absolute fixed-bottom w-100 d-flex align-items-end">
-            <h1 class="display-4 float-left ml-1 ml-md-3 mr-5 fixed">Partners</h1>
+        <div class="caption">
+            <h1>PARTNER INSTITUTIONS</h1>
         </div>
     </div>
     <br>
-    <p class="text-justify px-5 px-sm-0">Description paragraph for main partners catalog page.</p>
-    <hr class="w-60">
-    <div class="container row mb-md-5 mb-3 mx-auto">
-      {% for partner in partners %}
-        {% include "partner_item.html" %}
-      {% endfor %}
+    <div id="containerHolderOfPartner" class="mx-auto mt-3 mt-lg-5">
+      <div class="container-fluid row px-0">
+        {% for partner in partners %}
+          {% include "partner_item.html" %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>

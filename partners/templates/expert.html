@@ -1,9 +1,15 @@
 {% extends "main_django.html" %}
 
 {% block body %}
+{% if not user.is_authenticated %}
+<br>
+<br>
+<br>
+<br>
+{% endif %}
 <div class="bootstrap-iso">
   <div class="mx-auto">
-    <div id="expertheader" class="position-relative fluid-container">
+    <div id="expertheader" class="partnerheader position-relative fluid-container">
         <img class="w-100" src="{{expert.partner.banner.url}}" height="200"/>
         <div class="align-middle position-absolute fixed-bottom w-100 d-flex align-items-end">
             <img class="rounded-circle bg-white float-left mx-auto mx-sm-0" src="{{expert.profilePic.url}}" width="200"/>
@@ -15,7 +21,7 @@
     <br>
     <p class="text-justify px-5 px-sm-0">{{expert.description}}</p>
     <p class="text-center mt-md-5 mt-5"><strong>COURSES</strong></p>
-    <hr class="w-60">
+    <hr class="w-60 mx-auto">
     <div class="container row mb-md-5 mb-3 mx-auto">
         {% for course in courses %}
             {% include "course_item.html" %}
