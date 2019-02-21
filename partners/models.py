@@ -85,6 +85,7 @@ class Expert(models.Model):
         related_name='expert',
         help_text='partner/organization associated with this expert',
         on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

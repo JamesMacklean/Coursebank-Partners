@@ -12,15 +12,15 @@ import requests
 
 def PartnersCatalogView(request):
     """ renders all partners in main partners page """
-    partners = Partner.objects.all()
+    partners = Partner.objects.filter(is_active=True)
     context = {'partners': partners}
     return render(request, 'partners.html', context)
 
 def PartnerView(request,partner_name):
     """ renders partner and corresponding experts and courses in its own partner page """
     partner = get_object_or_404(Partner, slugName=partner_name)
-    experts = Expert.objects.filter(partner=partner)
-    partner_courses = PartnerCourse.objects.filter(partner=partner)
+    experts = Expert.objects.filter(is_active=True).filter(partner=partner)
+    partner_courses = PartnerCourse.objects.filter(is_active=True).filter(partner=partner)
     courses = []
     for partner_course in partner_courses:
         course_key = CourseKey.from_string(partner_course.course_id)
