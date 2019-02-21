@@ -8,7 +8,7 @@
 <br>
 {% endif %}
 <div class="bootstrap-iso" style="font-family: Montserrat;">
-  <div class="w-60 mx-auto">
+  <div class="mx-auto" style="max-width: 66.67%;">
       <div id="partnerheader" class="partnerheader position-relative fluid-container">
         {% if partner.banner %}
           <img class="w-100" src="{{partner.banner.url}}" height="200"/>
@@ -29,7 +29,7 @@
       <p class="text-justify px-5 px-sm-0" style="color: gray;">{{partner.description}}</p>
       <p class="text-center mt-md-5 mt-5" style="color: #006494;"><strong>COURSES</strong></p>
       <hr class="w-60 mx-auto">
-      <div class="container row mb-md-5 mb-3 mx-auto">
+      <div class="row mb-md-5 mb-3 mx-auto">
           {% if courses %}
               {% for course in courses %}
                   {% include "course_item.html" %}
@@ -38,7 +38,7 @@
       </div>
       <p class="text-center" style="color: #006494;"><strong>EXPERTS</strong></p>
       <hr class="w-60 mx-auto">
-      <div class="container row mt-md-5 mt-3 mx-auto">
+      <div class="row mt-md-5 mt-3 mx-auto">
           {% if experts %}
               {% for expert in experts %}
                   {% include "expert_item.html" %}

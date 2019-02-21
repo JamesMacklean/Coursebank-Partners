@@ -1,7 +1,7 @@
 <a class="col-9 col-sm-6 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner' partner_name=partner.slugName %}">
     <div class="card">
-      <img class="card-img-top mx-auto" src="{{partner.logo.url}}">
-      <div class="card-body position-relative mx-auto">
+      <img class="partner-card-img card-img-top mx-auto" src="{{partner.logo.url}}">
+      <div class="partner-card-title card-body position-relative mx-auto">
         <h5 class="card-title text-bold cerulean line-hide-2 font-1 text-center">{{partner.name}}</h5>
       </div>
     </div>

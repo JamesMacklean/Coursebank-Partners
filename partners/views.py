@@ -42,7 +42,7 @@ def ExpertView(request,partner_name,expert_id):
     """ renders expert in its own expert page """
     partner = get_object_or_404(Partner, slugName=partner_name)
     expert = get_object_or_404(Expert, pk=expert_id)
-    partner_course = PartnerCourse.objects.filter(experts__id__exact=expert_id, allowed=True)
+    partner_courses = PartnerCourse.objects.filter(experts__id__exact=expert_id)
     courses = []
     for partner_course in partner_courses:
         course_key = CourseKey.from_string(partner_course.course_id)

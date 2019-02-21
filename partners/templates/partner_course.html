@@ -8,7 +8,7 @@
 <br>
 {% endif %}
 <div class="bootstrap-iso" style="font-family: Montserrat;">
-  <div class="w-60 mx-auto">
+  <div class="mx-auto" style="max-width: 66.67%;">
     <div id="partnercourseheader" class="partnerheader position-relative fluid-container">
         <img class="w-100" src="{{partner.banner.url}}" height="200"/>
         <div class="align-middle position-absolute fixed-bottom w-100 d-flex align-items-end">
@@ -26,7 +26,7 @@
     </p>
     <p class="text-center mt-md-5 mt-5" style="color: #006494;"><strong>Experts</strong></p>
     <hr class="w-60 mx-auto">
-    <div class="container row mb-md-5 mb-3 mx-auto">
+    <div class="row mb-md-5 mb-3 mx-auto">
         {% for expert in partner_course.experts.all %}
             {% include "expert_item.html" %}
         {% endfor %}

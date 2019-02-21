@@ -8,21 +8,21 @@
 <br>
 {% endif %}
 <div class="bootstrap-iso" style="font-family: Montserrat;">
-  <div class="w-60 mx-auto">
+  <div class="mx-auto" style="max-width: 66.67%;">
     <div id="expertheader" class="partnerheader position-relative fluid-container">
         <img class="w-100" src="{{expert.partner.banner.url}}" height="200"/>
         <div class="align-middle position-absolute fixed-bottom w-100 d-flex align-items-end">
             <img class="rounded-circle bg-white float-left mx-auto mx-sm-0" src="{{expert.profilePic.url}}" width="200"/>
             <hr class="d-block d-sm-none">
             <h1 class="float-left ml-1 ml-md-3 mr-5 fixed">{{expert.name}}</h1>
-            <h2 class="float-left ml-1 ml-md-3 mr-5 fixed">{{expert.position}}</h1>
+            <h1 class="float-left ml-1 ml-md-3 mr-5 fixed">{{expert.position}}</h1>
         </div>
     </div>
     <br>
     <p class="text-justify px-5 px-sm-0" style="color: gray;">{{expert.description}}</p>
     <p class="text-center mt-md-5 mt-5" style="color: #006494;"><strong>COURSES</strong></p>
     <hr class="w-60 mx-auto">
-    <div class="container row mb-md-5 mb-3 mx-auto">
+    <div class="row mb-md-5 mb-3 mx-auto">
         {% for course in courses %}
             {% include "course_item.html" %}
         {% endfor %}
