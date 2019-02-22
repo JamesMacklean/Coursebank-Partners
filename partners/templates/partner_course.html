@@ -10,7 +10,11 @@
 <div class="bootstrap-iso" style="font-family: Montserrat;">
   <div class="mx-auto" style="max-width: 66.67%;">
     <div id="partnercourseheader" class="partnerheader position-relative fluid-container">
+      {% if partner.banner %}
         <img class="w-100" src="{{partner.banner.url}}" height="200"/>
+      {% else %}
+        <img class="w-100" height="200"/>
+      {% endif %}
         <div class="align-middle position-absolute fixed-bottom w-100 d-flex align-items-end">
             <img class="bg-white float-left mx-auto mx-sm-0" src="{{course.course_image_url}}" width="200"/>
             <hr class="d-block d-sm-none">
@@ -24,6 +28,7 @@
         Link to Course Page
       </a>
     </p>
+    {% if partner_course.experts.all %}
     <p class="text-center mt-md-5 mt-5" style="color: #006494;"><strong>Experts</strong></p>
     <hr class="w-60 mx-auto">
     <div class="row mb-md-5 mb-3 mx-auto">
@@ -31,6 +36,7 @@
             {% include "expert_item.html" %}
         {% endfor %}
     </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
