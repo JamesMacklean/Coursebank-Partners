@@ -21,6 +21,10 @@ class Partner(models.Model):
         help_text='Please add only .PNG files for banner images. This banner will be used on partner pages.',
         null=True, blank=True, max_length=255)
     is_active = models.BooleanField(default=True)
+    ranking = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['-ranking']
 
     def save(self, *args, **kwargs):
         self.slugName = slugify(self.name)
@@ -43,19 +47,6 @@ class PartnerCourse(models.Model):
         help_text='Experts that facilitate this course',
         blank=True)
     is_active = models.BooleanField(default=True)
-
-    # title = models.CharField(max_length=75,default='Course title',unique=True)
-    # slugTitle = models.SlugField(max_length=75,editable=False, default=slugify(title),unique=True)
-    # date_starting = models.DateField()
-    # image = models.CharField(max_length=200)
-    #
-    # advisor = models.CharField(max_length=75)
-    # canEarnCpd = models.BooleanField(default=False)
-    # courseExpertNum = models.PositiveSmallIntegerField()
-    # description = models.CharField(max_length=500)
-    # linkToAuthor = models.CharField(max_length=75)
-    # created_at = models.DateField(auto_now_add=True)
-    # rank = models.PositiveSmallIntegerField()
 
     @property
     def is_starting(self):

@@ -12,7 +12,7 @@ import requests
 
 def PartnersCatalogView(request):
     """ renders all partners in main partners page """
-    partners = Partner.objects.filter(is_active=True)
+    partners = Partner.objects.filter(is_active=True).order_by('-ranking')
     context = {'partners': partners}
     return render(request, 'partners.html', context)
 
