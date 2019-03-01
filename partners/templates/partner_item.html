@@ -1,6 +1,8 @@
-<a class="col-9 col-sm-6 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner' partner_name=partner.slugName %}">
+<a class="col-9 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner' partner_name=partner.slugName %}">
     <div class="partner-card card">
-      <img class="partner-card-img card-img-top mx-auto" src="{{partner.logo.url}}">
+      <div class="partner-img-cover">
+        <img class="partner-card-img card-img-top mx-auto" src="{{partner.logo.url}}">
+      </div>
       <div class="partner-card-title card-body position-relative mx-auto">
         <h5 class="card-title text-bold cerulean line-hide-2 font-1 text-center">{{partner.name}}</h5>
       </div>
