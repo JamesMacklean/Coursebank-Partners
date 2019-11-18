@@ -1,10 +1,14 @@
-<a class="col-9 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner' partner_name=partner.slugName %}">
+{% if partner in link_partners %}
+<a class="col-9 col-md-4 course-item mb-3 mx-auto" href="{% url 'partner' partner_name=partner.slugName %}" style="color: #6CC3B1;">
+{% else %}
+<a class="col-9 col-md-4 course-item mb-3 mx-auto" href="#" style="color: #6CC3B1;">
+{% endif %}
     <div class="partner-card card">
       <div class="partner-img-cover">
         <img class="partner-card-img card-img-top mx-auto" src="{{partner.logo.url}}">
       </div>
       <div class="partner-card-title card-body position-relative mx-auto">
-        <h5 class="card-title text-bold cerulean line-hide-2 font-1 text-center">{{partner.name}}</h5>
+        <h5 class="card-title text-bold teal font-1 text-center">{{partner.name}}</h5>
       </div>
     </div>
 </a>

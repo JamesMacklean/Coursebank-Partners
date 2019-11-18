@@ -65,7 +65,7 @@ class PartnerCourse(models.Model):
 
 class Expert(models.Model):
     name = models.CharField(max_length=75,default='No name')
-    description = models.CharField(max_length=500,default='No description set.')
+    description = models.TextField(default='No description set.')
     position = models.CharField(max_length=30,default='Expert')
     profilePic = models.ImageField(
         upload_to='partners',

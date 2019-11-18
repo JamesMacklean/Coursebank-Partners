@@ -12,8 +12,12 @@ import requests
 
 def PartnersCatalogView(request):
     """ renders all partners in main partners page """
+    link_partners = []
+    for course in PartnerCourse.objects.all():
+        if course.partner not in link_partners:
+            link_partners.append(course.partner)
     partners = Partner.objects.filter(is_active=True).order_by('-ranking')
-    context = {'partners': partners}
+    context = {'partners': partners, 'link_partners': link_partners}
     return render(request, 'partners.html', context)
 
 def PartnerView(request,partner_name):
@@ -25,7 +29,7 @@ def PartnerView(request,partner_name):
     for partner_course in partner_courses:
         course_key = CourseKey.from_string(partner_course.course_id)
         courseoverview = CourseOverview.get_from_id(course_key)
-        courses.append({'courseoverview':courseoverview, 'partner_course':partner_course})
+        courses.append(courseoverview)
     context = {'partner': partner,  'courses':courses, 'experts':experts}
     return render(request, 'partner.html', context)
 
