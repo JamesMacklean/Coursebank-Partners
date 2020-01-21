@@ -22,6 +22,7 @@ class Partner(models.Model):
         null=True, blank=True, max_length=255)
     is_active = models.BooleanField(default=True)
     ranking = models.PositiveSmallIntegerField(default=0)
+    cert_desc = models.TextField(default="")
 
     class Meta:
         ordering = ['-ranking']
