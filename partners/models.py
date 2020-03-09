@@ -16,15 +16,15 @@ class Partner(models.Model):
         upload_to='partners',
         help_text='Please add only .PNG files for logo images. This logo will be used on partner pages.',
         null=True, blank=True, max_length=255)
-    logo_url = models.URLField(max_length=500, default="")
+    logo_url = models.URLField(max_length=500, blank=True, default="")
     banner = models.ImageField(
         upload_to='partners',
         help_text='Please add only .PNG files for banner images. This banner will be used on partner pages.',
         null=True, blank=True, max_length=255)
-    banner_url = models.URLField(max_length=500, default="")
+    banner_url = models.URLField(max_length=500, blank=True, default="")
     is_active = models.BooleanField(default=True)
     ranking = models.PositiveSmallIntegerField(default=0)
-    cert_desc = models.TextField(default="")
+    cert_desc = models.TextField(blank=True, default="")
 
     class Meta:
         ordering = ['-ranking']
@@ -74,7 +74,7 @@ class Expert(models.Model):
         upload_to='partners',
         help_text='Please add only .PNG files for profile images. This image will be used on partner pages.',
         null=True, blank=True, max_length=255)
-    profile_pic_url = models.URLField(max_length=500, default="")
+    profile_pic_url = models.URLField(max_length=500, blank=True, default="")
     partner = models.ForeignKey(
         'Partner',
         related_name='expert',
