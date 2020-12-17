@@ -323,10 +323,10 @@
       {% endfor %}
 
       <!-- Partner's Profile -->
-      <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-log-4 partner-profile">
+      <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-lg-4 partner-profile">
         <div class="partner-profile-card course-card mx-auto card">
           <div class="profile-color">
-            <h5>PROFILE</h5>
+            <div class="h5">PROFILE</div>
           </div>
           <div class="card-body">
             <h5 class="card-title">Partner Information</h5>
@@ -359,42 +359,6 @@
       </div>
     </div>
   </div>
-
-  <!-- <div class="mx-auto" style="max-width: 66.67%;">
-      <div id="partnerheader" class="partnerheader position-relative fluid-container">
-        {% if partner.banner %}
-          <img class="w-100" src="{{partner.banner_url}}" height="200"/>
-        {% else %}
-          <img class="w-100" height="200"/>
-        {% endif %}
-          <div class="align-middle position-absolute w-100 d-flex justify-content-end">
-            <div id="partner-name-padding"></div>
-            <h1 class="float-right ml-1 ml-md-3 fixed">{{partner.name}}</h1>
-          </div>
-          <div class="align-middle position-absolute fixed-bottom w-100 d-flex align-items-end">
-            {% if partner.logo %}
-              <img class="rounded-circle bg-white float-left mx-auto mx-sm-0" src="{{partner.logo.url}}" width="200"/>
-            {% else %}
-              <img class="rounder-circle bg-white float-left mx-auto mx-sm-0" width="200" />
-            {% endif %}
-              <hr class="d-block d-sm-none">
-          </div>
-      </div>
-      <br>
-      {% if courses %}
-      <p class="text-center mt-md-5 mt-5" style="color: #6CC3B1;"><strong>COURSES</strong></p>
-      <hr class="w-60 mx-auto">
-      <div class="row mb-md-5 mb-3 mx-auto">
-              {% for course in courses %}
-                  {% include "course_item.html" %}
-              {% endfor %}
-      </div>
-      {% endif %}
-      <br>
-      <br>
-      <div class="text-center px-5 px-sm-0" style="color: gray;"><b>About This Partner</b></div>
-      <p class="text-justify px-5 px-sm-0" style="color: gray;">{{partner.description|safe}}</p>
-  </div> -->
 
 <!-- end: boostrap-iso -->
 </div>
