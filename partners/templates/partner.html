@@ -1,5 +1,287 @@
 {% extends "main_django.html" %}
 
+{% block title %}{{ platform_name }} | {{ partner.name }}{% endblock %}
+
+{% block headextra %}
+<style>
+  .hero-partner {
+    background-image: url('/static/img/adarna/adarna-overlay.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
+    min-height: 22.5rem;
+    margin-top: -4.6rem;
+}
+
+.btn-success {
+    background-color: #6CC3B1;
+    border-color:  #6CC3B1;
+}
+
+.course-card {
+    border-top: 3px solid #6CC3B1;
+    min-width: 15rem;
+}
+
+.course-card hr {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.backgcolor {
+    background-color: #e8e8e8;
+}
+
+ul {
+    padding-left: 1rem;
+}
+
+#hyperLink {
+    margin-top: 5px;
+    padding-top: 7px;
+}
+
+ul#hyperLink li {
+    display: inline;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+ul#hyperLink a {
+    text-decoration: none;
+    color: #6CC3B1;
+}
+
+.partner-profile {
+    margin-top: -2.5rem;
+}
+
+.partner-proflile-card {
+   width: 18rem;
+}
+
+.about-partner p {
+    text-align: left;
+}
+
+.about-text {
+    margin-left: unset !important;
+    margin-right: unset !important;
+}
+
+h4 {
+    color: #6CC3B1;
+}
+
+.profile-color {
+    background-color: #6CC3B1;
+}
+
+.profile-color h5 {
+    color: #FFFFFF;
+    padding-left: 0.9rem;
+    padding-top: 0.5rem;
+
+}
+
+.course-card .card-text {
+    font-style: italic;
+    opacity: 0.5;
+}
+
+.partner-instructors .name {
+    color: #6CC3B1;
+    white-space: nowrap;
+    position: relative;
+    right: 5rem;
+}
+
+.partner-instructors .profession {
+    color: #575757;
+    white-space: nowrap;
+    position: relative;
+    right: 5rem;
+    font-size: 14px;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1920px){
+    .hero-partner {
+        min-height: 31.5rem;
+    }
+}
+
+@media (max-width: 1900px) {
+    .backgcolor {
+        margin-top: -1.2rem;
+    }
+}
+
+@media (max-width: 1366px) {
+    .hero-partner {
+        min-height: 25.5rem;
+        margin-top: -4.55rem;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .hero-partner {
+        min-height: 21rem;
+    }
+
+    .partner-instructors .name, .partner-instructors .profession {
+       clear: right;
+    }
+}
+
+@media (max-width: 991px) {
+
+    #first {
+        order: 3;
+    }
+
+    #second {
+        order: 4;
+    }
+
+    #third {
+        order: 1;
+    }
+
+    .links {
+        text-align: center;
+    }
+
+    .hero-partner {
+        min-height: 20rem;
+    }
+
+    .partner-profile {
+        margin-top: 1.5rem;
+    }
+
+    .partner-proflile-card {
+        width: unset;
+     }
+
+    #courses, .about-partner p, .partner-instructors, .about-partner{
+        text-align: center;
+    }
+
+    #courses {
+        margin-top: 5rem;
+        order: 2;
+    }
+
+    .partner-instructors .name, .partner-instructors .profession {
+        position: unset;
+        right: unset;
+    }
+
+    .about-text {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 952px) {
+    .hero-partner {
+        background-image: url('/static/img/adarna/adarna-overlay-tablet.jpg');
+        min-height: 25rem;
+    }
+}
+
+@media (max-width: 826px) {
+    .hero-partner {
+        min-height: 23rem;
+    }
+}
+
+@media (max-width: 826px) {
+    .hero-partner {
+        min-height: 23rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero-partner {
+        min-height: 29rem;
+    }
+
+    .about-text {
+        min-width: 100%;
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .hero-partner {
+        background-image: url('/static/img/adarna/adarna-overlay-mobile.jpg');
+        min-height: 28rem;
+    }
+
+}
+
+@media (min-width: 608px) and (max-width: 655px) {
+    .hero-partner {
+        min-height: 26rem;
+    }
+}
+
+
+@media (min-width: 511px) and (max-width: 607px) {
+    .hero-partner {
+        min-height: 24rem;
+    }
+}
+
+@media (max-width: 510px) {
+    .hero-partner {
+        min-height: 21rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-partner {
+        min-height: 17rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero-partner {
+        min-height: 16rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero-partner {
+        min-height: 14rem;
+    }
+
+    ul {
+        padding-left: 0rem;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 280px) {
+    .hero-partner {
+        min-height: 12rem;
+    }
+}
+
+/* End of Media Queries */
+</style>
+{% endblock %}
+
 {% block body %}
 {% if not user.is_authenticated %}
 <br>
@@ -7,8 +289,77 @@
 <br>
 <br>
 {% endif %}
-<div class="bootstrap-iso" style="font-family: Montserrat;">
-  <div class="mx-auto" style="max-width: 66.67%;">
+<div class="bootstrap-iso" style="font-family: 'Lato', sans-serif;">
+<!-- start: boostrap-iso -->
+
+  <!-- Hero Section -->
+  <section class="hero-partner"></section>
+
+  <!-- Hyperlinks -->
+  <div class="backgcolor links">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-12">
+          <ul id="hyperLink">
+            <a href="#courses"><li>Courses</li></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#instructors"><li>Instructors</li></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#about"><li>About</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row mx-sm-auto mt-5">
+
+      <!-- Courses -->
+      <h4 id="courses"><strong>Available Courses</strong></h4>
+
+      {% for course in courses %}
+        {% include "course_item.html" %}
+      {% endfor %}
+
+      <!-- Partner's Profile -->
+      <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-log-4 partner-profile">
+        <div class="partner-profile-card course-card mx-auto card">
+          <div class="profile-color">
+            <h5>PROFILE</h5>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Partner Information</h5>
+            <p class="card-text">{{ partner.info }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Instructions -->
+    <div class="partner-instructors row mt-5">
+      <h4 id="instructors"><strong>Instructors</strong></h4>
+      <div class="container">
+
+        <div class="row mt-3">
+          {% for expert in experts %}
+            {% include "expert_item.html" %}
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="about-partner row mt-5">
+      <h4 id="about"><strong>About {{ partner.name }}</strong></h4>
+      <div class="about-text mx-xs-auto mx-sm-auto col-xs-12 col-8">
+        {{ partner.description|safe }}
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="mx-auto" style="max-width: 66.67%;">
       <div id="partnerheader" class="partnerheader position-relative fluid-container">
         {% if partner.banner %}
           <img class="w-100" src="{{partner.banner_url}}" height="200"/>
@@ -42,6 +393,8 @@
       <br>
       <div class="text-center px-5 px-sm-0" style="color: gray;"><b>About This Partner</b></div>
       <p class="text-justify px-5 px-sm-0" style="color: gray;">{{partner.description|safe}}</p>
-  </div>
+  </div> -->
+
+<!-- end: boostrap-iso -->
 </div>
 {% endblock %}
