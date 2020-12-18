@@ -21,19 +21,11 @@
 </head>
 {% endblock %}
 
-<body>
-    {% comment %} {% with course=request.course %}
-      {% include "header.html"|microsite_template_path with online_help_token=online_help_token  %}
-    {% endwith %} {% endcomment %}
-    
+<body>   
     {% include "header_partners.html" %}
 
     {% block body %}
     {% endblock %}
-
-    {% comment %} {% with course=request.course %}
-      {% include "footer.html"|microsite_template_path %}
-    {% endwith %} {% endcomment %}
 
     {% include "footer_partners.html" %}
 
