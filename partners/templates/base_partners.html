@@ -15,13 +15,25 @@
     <link rel="stylesheet" type="text/css" href="">
     {% endblock %}
     <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="https://coursebank-static-assets.s3-ap-northeast-1.amazonaws.com/theme/favicon.ico" />
     {% block headextra %}{% endblock %}
 </head>
 {% endblock %}
 
 <body>
+    <a class="nav-skip" href="#main">{% trans "Skip to main content" %}</a>
+    
+    {% with course=request.course %}
+      {% include "header.html"|microsite_template_path with online_help_token=online_help_token  %}
+    {% endwith %}
+    
     {% block body %}
     {% endblock %}
+
+    {% with course=request.course %}
+      {% include "footer.html"|microsite_template_path %}
+    {% endwith %}
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
