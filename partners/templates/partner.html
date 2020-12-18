@@ -280,6 +280,101 @@
   }
 
   /* End of Media Queries */
+
+  footer {
+    background-color: #484848;
+}
+
+footer h5 {
+    font-size: 16px;
+    color: white;
+}
+
+footer hr {
+    color: white;
+
+}
+
+.footer-copyright {
+    color: white;
+    margin-left: 7.55rem;
+    opacity: 0.5;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+footer a:hover {
+    color: #dcdbe1;
+}
+
+.footer-img {
+    height: 3.7rem;
+    margin-left: 6rem;
+}
+
+.fa-facebook-square {
+    margin-left: 70%;
+}
+
+
+@media (max-width: 991px) {
+    .footer-img {
+        height: 2.6rem;
+    }
+
+    footer h5{
+        font-size: 14px;
+    }
+
+    footer a {
+        font-size: 12px;
+    }
+
+    .fa-facebook-square {
+        margin-left: 50%;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+
+    footer {
+        text-align: center;
+    }
+
+    .footer-copyright {
+        margin-left: unset;
+    }
+
+    .footer-img {
+        margin-left: unset;
+    }
+
+    #footer-content {
+        padding-top: 1.7rem;
+    }
+
+    footer .py-5 {
+        padding-top: unset !important;
+        padding-bottom: unset !important;
+    }
+
+    .fa-facebook-square {
+        margin-left: 20%;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .fa-facebook-square {
+        margin-left: 2%;
+    }
+}
 </style>
 {% endblock %}
 
