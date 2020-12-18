@@ -21,7 +21,7 @@
 {% endblock %}
 
 <body>
-    <a class="nav-skip" href="#main">{% trans "Skip to main content" %}</a>
+    <a class="nav-skip" href="#main">Skip to main content</a>
     
     {% with course=request.course %}
       {% include "header.html"|microsite_template_path with online_help_token=online_help_token  %}
