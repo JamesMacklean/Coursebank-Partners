@@ -142,18 +142,6 @@
 
   @media (max-width: 991px) {
 
-      #first {
-          order: 3;
-      }
-
-      #second {
-          order: 4;
-      }
-
-      #third {
-          order: 1;
-      }
-
       .links {
           text-align: center;
       }
@@ -172,11 +160,6 @@
 
       #courses, .about-partner p, .partner-instructors, .about-partner{
           text-align: center;
-      }
-
-      #courses {
-          margin-top: 5rem;
-          order: 2;
       }
 
       .partner-instructors .name, .partner-instructors .profession {
@@ -283,98 +266,98 @@
 
   footer {
     background-color: #484848;
-}
-
-footer h5 {
-    font-size: 16px;
-    color: white;
-}
-
-footer hr {
-    color: white;
-
-}
-
-.footer-copyright {
-    color: white;
-    margin-left: 7.55rem;
-    opacity: 0.5;
-}
-
-footer a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-}
-
-footer a:hover {
-    color: #dcdbe1;
-}
-
-.footer-img {
-    height: 3.7rem;
-    margin-left: 6rem;
-}
-
-.fa-facebook-square {
-    margin-left: 70%;
-}
-
-
-@media (max-width: 991px) {
-    .footer-img {
-        height: 2.6rem;
     }
 
-    footer h5{
-        font-size: 14px;
+    footer h5 {
+        font-size: 16px;
+        color: white;
     }
 
-    footer a {
-        font-size: 12px;
-    }
+    footer hr {
+        color: white;
 
-    .fa-facebook-square {
-        margin-left: 50%;
-    }
-}
-
-
-@media (max-width: 767px) {
-
-
-    footer {
-        text-align: center;
     }
 
     .footer-copyright {
-        margin-left: unset;
+        color: white;
+        margin-left: 7.55rem;
+        opacity: 0.5;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
+    }
+
+    footer a:hover {
+        color: #dcdbe1;
     }
 
     .footer-img {
-        margin-left: unset;
-    }
-
-    #footer-content {
-        padding-top: 1.7rem;
-    }
-
-    footer .py-5 {
-        padding-top: unset !important;
-        padding-bottom: unset !important;
+        height: 3.7rem;
+        margin-left: 6rem;
     }
 
     .fa-facebook-square {
-        margin-left: 20%;
+        margin-left: 70%;
     }
 
-}
 
-@media (max-width: 500px) {
-    .fa-facebook-square {
-        margin-left: 2%;
+    @media (max-width: 991px) {
+        .footer-img {
+            height: 2.6rem;
+        }
+
+        footer h5{
+            font-size: 14px;
+        }
+
+        footer a {
+            font-size: 12px;
+        }
+
+        .fa-facebook-square {
+            margin-left: 50%;
+        }
     }
-}
+
+
+    @media (max-width: 767px) {
+
+
+        footer {
+            text-align: center;
+        }
+
+        .footer-copyright {
+            margin-left: unset;
+        }
+
+        .footer-img {
+            margin-left: unset;
+        }
+
+        #footer-content {
+            padding-top: 1.7rem;
+        }
+
+        footer .py-5 {
+            padding-top: unset !important;
+            padding-bottom: unset !important;
+        }
+
+        .fa-facebook-square {
+            margin-left: 20%;
+        }
+
+    }
+
+    @media (max-width: 500px) {
+        .fa-facebook-square {
+            margin-left: 2%;
+        }
+    }
 </style>
 {% endblock %}
 
@@ -413,7 +396,7 @@ footer a:hover {
       {% endfor %}
 
       <!-- Partner's Profile -->
-      <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-lg-4 partner-profile">
+      <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-lg-8 partner-profile">
         <div class="partner-profile-card course-card mx-auto card">
           <div class="profile-color">
             <div class="h5">PROFILE</div>
