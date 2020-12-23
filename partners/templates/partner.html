@@ -460,7 +460,7 @@
       -->
       
       <!-- If 1 course -->
-      <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-lg-8 partner-profile">
+      <div id="partner-profile-{{ partner.id }}" class="col-md-12 {% if is_multiple_courses %}col-lg-4{% else %}col-lg-8{% endif %} partner-profile">
         <div class="partner-profile-card course-card mx-auto card">
           <div class="profile-color">
             <div class="h5">PROFILE</div>
@@ -468,24 +468,28 @@
             <div class="card-body">
 
             <!-- Domain -->
+            {% if partner.website_url != '' %}
             <div id="domain-partner" class="row">
                 <div class="col-2">
                     <i class="fas fa-globe"></i>
                 </div>
                 <div class="col-10">
-                    <a href="#"><p>Partner Website</p></a>
+                    <a href="{{ partner.website_url }}"><p>Partner Website</p></a>
                 </div>
                 </div><br>
+            {% endif %}
 
             <!-- Facebook Page  -->
+            {% if partner.socmed_url != '' %}
             <div id="fb-partner" class="row">
                 <div class="col-2">
                     <i class="fab fa-facebook"></i>
                 </div>
                 <div class="col-10">
-                    <a href="#"><p>Partner Facebook</p></a>
+                    <a href="{{ partner.socmed_url }}"><p>Partner Facebook</p></a>
                 </div>
                 </div><br>
+            {% endif %}
 
             <!-- Address -->
             <p class="card-text">{{ partner.info }}</p>
