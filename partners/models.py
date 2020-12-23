@@ -22,6 +22,11 @@ class Partner(models.Model):
         help_text='Please add only .PNG files for banner images. This banner will be used on partner pages.',
         null=True, blank=True, max_length=255)
     banner_url = models.URLField(max_length=500, blank=True, default="")
+    banner_mobile_url = models.URLField(max_length=500, blank=True, default="")
+    banner_tablet_url = models.URLField(max_length=500, blank=True, default="")
+    info = models.TextField(default="")
+    website_url = models.TextField(default="")
+    socmed_url = models.TextField(default="")
     is_active = models.BooleanField(default=True)
     ranking = models.PositiveSmallIntegerField(default=0)
     cert_desc = models.TextField(blank=True, default="")
@@ -69,7 +74,8 @@ class PartnerCourse(models.Model):
 class Expert(models.Model):
     name = models.CharField(max_length=75,default='No name')
     description = models.TextField(default='No description set.')
-    position = models.CharField(max_length=30,default='Expert')
+    position = models.CharField(max_length=255, default='Expert')
+    position_org = models.CharField(max_length=255, default='')
     profilePic = models.ImageField(
         upload_to='partners',
         help_text='Please add only .PNG files for profile images. This image will be used on partner pages.',
