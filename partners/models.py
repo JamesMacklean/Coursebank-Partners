@@ -25,6 +25,8 @@ class Partner(models.Model):
     banner_mobile_url = models.URLField(max_length=500, blank=True, default="")
     banner_tablet_url = models.URLField(max_length=500, blank=True, default="")
     info = models.TextField(default="")
+    website_url = models.TextField(default="")
+    socmed_url = models.TextField(default="")
     is_active = models.BooleanField(default=True)
     ranking = models.PositiveSmallIntegerField(default=0)
     cert_desc = models.TextField(blank=True, default="")
