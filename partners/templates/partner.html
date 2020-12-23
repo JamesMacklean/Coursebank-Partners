@@ -66,6 +66,15 @@
   .partner-profile-card.course-card.mx-auto.card {
       width: 18rem;
   }
+  
+   div#fb-partner a, div#domain-partner a {
+      text-decoration: none;
+      color: #000000;
+  }
+
+    div#fb-partner a:hover, div#domain-partner a:hover {
+      color: #6e6d7c;
+  }
 
   .about-partner p {
       text-align: left;
@@ -145,6 +154,10 @@
   }
 
   @media (max-width: 991px) {
+  
+      div#fb-partner, div#domain-partner {
+          padding-left: 13rem;
+      }
 
       .links {
           text-align: center;
@@ -210,6 +223,10 @@
   }
 
   @media (max-width: 768px) {
+  
+       div#fb-partner, div#domain-partner {
+          padding-left: 8.7rem;
+      }
 
       .hero-partner {
           background-image: url('{{ partner.banner_mobile_url }}');
@@ -409,11 +426,31 @@
           <div class="profile-color">
             <div class="h5">PROFILE</div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">Partner Information</h5>
-            <p class="card-text">{{ partner.info }}</p>
-          </div>
+             <div class="card-body">
+                <div id="domain-partner" class="row">
+                    <div class="col-2">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="#"><p>Partner Website</p></a>
+                    </div>
+                </div><br>
+
+
+                <div id="fb-partner" class="row">
+                    <div class="col-2">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="#"><p>Partner Facebook</p></a>
+                    </div>
+                </div><br>
+
+
+                <p class="card-text">{{ partner.info }}</p>
+                </div>
         </div>
+        
       </div>
       -->
       
@@ -423,10 +460,31 @@
           <div class="profile-color">
             <div class="h5">PROFILE</div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">Partner Information</h5>
+            <div class="card-body">
+
+            <!-- Domain -->
+            <div id="domain-partner" class="row">
+                <div class="col-2">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="col-10">
+                    <a href="#"><p>Partner Website</p></a>
+                </div>
+                </div><br>
+
+            <!-- Facebook Page  -->
+            <div id="fb-partner" class="row">
+                <div class="col-2">
+                    <i class="fab fa-facebook"></i>
+                </div>
+                <div class="col-10">
+                    <a href="#"><p>Partner Facebook</p></a>
+                </div>
+                </div><br>
+
+            <!-- Address -->
             <p class="card-text">{{ partner.info }}</p>
-          </div>
+            </div>
         </div>
       </div>
 
