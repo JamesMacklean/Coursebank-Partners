@@ -30,7 +30,9 @@ def PartnerView(request,partner_name):
         course_key = CourseKey.from_string(partner_course.course_id)
         courseoverview = CourseOverview.get_from_id(course_key)
         courses.append(courseoverview)
-    context = {'partner': partner,  'courses':courses, 'experts':experts}
+    is_multiple_courses = len(courses) > 1
+    context = {'partner': partner,  'courses': courses,
+               'experts': experts, 'is_multiple_courses': is_multiple_courses}
     return render(request, 'partner.html', context)
 
 def PartnerCourseView(request,partner_name,course_id):
