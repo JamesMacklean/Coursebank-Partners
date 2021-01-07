@@ -1,7 +1,10 @@
 <div class="col-lg-3 col-xl-2">
+  {% if expert.profile_pic_url %}
   <img src="{{ expert.profile_pic_url }}" alt="{{ expert.name }} profile picture" style="max-height: 93px; max-width: 93px;">
+  {% endif %}
 </div>
 <div class="col-lg-3 col-xl-2">
   <p class="name"><strong>{{ expert.name }}</strong></p>
   <p class="profession">{{ expert.position }}<br>{{ expert.position_org }}</br></p>
 </div>
+

@@ -85,8 +85,17 @@
       margin-right: unset !important;
   }
 
-  .h4 {
-      color: #6CC3B1;
+   .h4, .nav-link, .navbar-light .navbar-toggler {
+      color: #6CC3B1 !important;
+      border-color: rgb(108, 195, 177) !important;
+  }
+  
+  .navbar-light .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 195, 177, 1.0%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  }
+  
+  .nav-link:hover {
+      color: #28826F !important;
   }
 
   .profile-color {
@@ -159,7 +168,7 @@
           padding-left: 13rem;
       }
 
-      .links {
+      .links, .card-text, .navbar-nav {
           text-align: center;
       }
 
