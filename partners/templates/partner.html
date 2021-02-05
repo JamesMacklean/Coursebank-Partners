@@ -43,9 +43,7 @@
   }
 
   #hyperLink {
-      margin-top: 5px;
-      margin-bottom: 1rem;
-      padding-top: 7px;
+      padding-top: 14px;
   }
 
   ul#hyperLink li {
@@ -58,6 +56,11 @@
       text-decoration: none;
       color: #6CC3B1;
   }
+  
+  ul#hyperLink a:hover {
+      color: #28826F;
+  }
+
 
   .partner-profile {
       margin-top: -2.5rem;
@@ -134,13 +137,13 @@
 
   @media (max-width: 1920px){
       .hero-partner {
-          min-height: 33rem;
+          min-height: 31rem;
       }
   }
 
-  @media (max-width: 1900px) {
+  @media (max-width: 1807px) {
       .backgcolor {
-          margin-top: -1.2rem;
+          margin-top: -1.1rem;
       }
   }
 
@@ -212,7 +215,7 @@
       }
   }
 
-  @media (max-width: 767px) {
+  @media (min-width: 667px) and (max-width: 768px) {
   
        div#fb-partner, div#domain-partner {
           padding-left: 8.7rem;
@@ -220,12 +223,16 @@
 
       .hero-partner {
           background-image: url('{{ partner.banner_mobile_url }}');
-          min-height: 28.4rem;
+          min-height: 29rem;
       }
       
       .about-text {
           min-width: 100%;
           text-align: center;
+      }
+      
+      .backgcolor {
+          margin-top: -1.4rem;
       }
 
   }
@@ -233,6 +240,10 @@
   @media (min-width: 608px) and (max-width: 655px) {
       .hero-partner {
           min-height: 26rem;
+      }
+      
+      .backgcolor {
+          margin-top: -1.3rem;
       }
   }
 
@@ -247,6 +258,10 @@
       .hero-partner {
           min-height: 21rem;
       }
+      
+      .backgcolor {
+          margin-top: -1rem;
+      }
   }
 
   @media (max-width: 420px) {
@@ -257,6 +272,10 @@
   
       .hero-partner {
           min-height: 17rem;
+      }
+      
+      .backgcolor {
+          margin-top: -0.77rem;
       }
   }
 
@@ -299,6 +318,9 @@
 
   /* End of Media Queries */
 
+
+    /* Footer */
+    
     footer {
         background-color: #484848;
     }
