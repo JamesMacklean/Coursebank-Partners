@@ -80,7 +80,7 @@
   }
 
   .about-partner p {
-      text-align: left;
+      text-align: justify;
   }
 
   .about-text {
@@ -99,6 +99,11 @@
   
   .nav-link:hover {
       color: #28826F !important;
+  }
+  
+  .nav-item {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
   }
 
   .profile-color {
@@ -472,8 +477,8 @@
       -->
       
       <!-- If 1 course -->
-      <div id="partner-profile-{{ partner.id }}" class="col-md-12 {% if is_multiple_courses %}col-lg-4{% else %}col-lg-8{% endif %} partner-profile">
-        <div class="partner-profile-card course-card mx-auto card">
+      <div id="partner-profile-{{ partner.id }}" class="col-md-12 {% if is_multiple_courses %}col-lg{% else %}col-lg{% endif %} partner-profile">
+        <div class="partner-profile-card course-card ms-auto card">
           <div class="profile-color">
             <div class="h5">PROFILE</div>
           </div>
