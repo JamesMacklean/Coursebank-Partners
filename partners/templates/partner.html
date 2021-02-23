@@ -471,7 +471,6 @@
       {% endfor %}
 
       <!-- Partner's Profile -->
-      
     
       <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-lg partner-profile">
         <div class="partner-profile-card course-card ms-auto card">
@@ -510,6 +509,36 @@
         </div>
       </div>
 
+    </div>
+    
+    <div class="row mx-sm-auto">
+        {% for course in courses %}
+        <!-- for courses.id 3 and up (e.g. 4, 5, ,6 ,7) -->
+        <div id="partner-course-{{ course.id }}" class="text-center mt-4 col-md-12 col-lg-4">
+            <div class="course-card mx-xs-auto card">
+               <img src="{{ course.course_image_url }}" class="img-thumbnail img-fluid card-img-top" alt="Course Picture">
+               <div class="card-body">
+                 <h5 class="card-title">{{ course.display_name }}</h5>
+                 <p class="card-text">
+                    {% if course.start_display != None %}
+                    Starts: {{course.start_display}}
+                    {% else %}
+                    Starts: {{course.start}}
+                    {% endif %}
+                 </p>
+                 <hr>
+                 <a href="{% url 'about_course' course_id=course.id %}" class="btn btn-success">Enroll Now</a>
+               </div>
+          </div>
+        </div>
+        
+        <!-- if the course.id is 4, 6, 8, 10, 12 to push down the 5, 7 , 9 and 11 cards down -->
+        {% if course.id %}
+        <div class="col-md-12 col-lg-4"></div>
+        {% endif %}
+        
+        {% endfor %}
+        
     </div>
 
     <!-- Instructions -->
