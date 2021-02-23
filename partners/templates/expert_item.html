@@ -1,19 +1,9 @@
-<div class="col-lg-3 col-xl-2">
+<div class="instructor-image col-sm-12 col-lg-5 col-xl-3 py-2">
   {% if expert.profile_pic_url %}
   <img src="{{ expert.profile_pic_url }}" alt="{{ expert.name }} profile picture" style="max-height: 93px; max-width: 93px;">
   {% endif %}
 </div>
-<div class="col-lg-3 col-xl-2">
+<div class="col-sm-12 col-lg-5 col-xl-3 py-2">
   <p class="name"><strong>{{ expert.name }}</strong></p>
   <p class="profession">{{ expert.position }}<br>{{ expert.position_org }}</br></p>
 </div>
-
-<!--
-If the id of the expert is 2, 4, 6, 8, 10, etc. Even numbers starting from 2 to push down the next expert element 
-{% if expert.id %}
-<div class="mt-5">
-  <div class="col-lg-3 col-xl-2"></div>
-  <div class="col-lg-3 col-xl-2"></div>
-</div>
-{% endif %}
--->
