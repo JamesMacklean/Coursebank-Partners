@@ -458,107 +458,76 @@
   </div>
 
   <!-- Page Content -->
-  <div class="container">
-    <div class="row mx-sm-auto mt-5">
-
-      <!-- Courses -->
-      <div class="h4" id="courses"><strong>Available Courses</strong></div>
-
-      {% for course in courses %}
-        {% include "course_item.html" %}
-      {% endfor %}
-
-      <!-- Partner's Profile -->
-    
-      <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-lg partner-profile">
-        <div class="partner-profile-card course-card ms-auto card">
-          <div class="profile-color">
-            <div class="h5">PROFILE</div>
-          </div>
-            <div class="card-body">
-
-            <!-- Domain -->
-            {% if partner.website_url != '' %}
-            <div id="domain-partner" class="row">
-                <div class="col-2">
-                    <i class="fas fa-globe"></i>
+  <div class="container mb-4 mt-5">
+    <div class="row mx-sm-auto">
+         <div class="col-lg-4 order-md-last">
+            <!-- Partner's Profile -->
+            <div id="partner-profile-{{ partner.id }}" class="col-md-12 col-lg partner-profile">
+              <div class="partner-profile-card course-card ms-auto card">
+                <div class="profile-color">
+                  <div class="h5">PROFILE</div>
                 </div>
-                <div class="col-10">
-                    <a href="{{ partner.website_url }}"><p>Partner Website</p></a>
-                </div>
-                </div><br>
-            {% endif %}
-
-            <!-- Facebook Page  -->
-            {% if partner.socmed_url != '' %}
-            <div id="fb-partner" class="row">
-                <div class="col-2">
-                    <i class="fab fa-facebook"></i>
-                </div>
-                <div class="col-10">
-                    <a href="{{ partner.socmed_url }}"><p>Partner Facebook</p></a>
-                </div>
-                </div><br>
-            {% endif %}
-
-            <!-- Address -->
-            <p class="card-text">{{ partner.info }}</p>
+                  <div class="card-body">
+      
+                  <!-- Domain -->
+                  {% if partner.website_url != '' %}
+                  <div id="domain-partner" class="row">
+                      <div class="col-2">
+                          <i class="fas fa-globe"></i>
+                      </div>
+                      <div class="col-10">
+                          <a href="{{ partner.website_url }}"><p>Partner Website</p></a>
+                      </div>
+                      </div><br>
+                  {% endif %}
+      
+                  <!-- Facebook Page  -->
+                  {% if partner.socmed_url != '' %}
+                  <div id="fb-partner" class="row">
+                      <div class="col-2">
+                          <i class="fab fa-facebook"></i>
+                      </div>
+                      <div class="col-10">
+                          <a href="{{ partner.socmed_url }}"><p>Partner Facebook</p></a>
+                      </div>
+                      </div><br>
+                  {% endif %}
+      
+                  <!-- Address -->
+                  <p class="card-text">{{ partner.info }}</p>
+                  </div>
+              </div>
             </div>
         </div>
-      </div>
+        
+        <div class="col-lg-8">
+            <div class="row g-3">
 
-    </div>
-    
-    <div class="row mx-sm-auto">
-        {% for course in courses %}
-        <!-- for courses.id 3 and up (e.g. 4, 5, ,6 ,7) -->
-        <div id="partner-course-{{ course.id }}" class="text-center mt-4 col-md-12 col-lg-4">
-            <div class="course-card mx-xs-auto card">
-               <img src="{{ course.course_image_url }}" class="img-thumbnail img-fluid card-img-top" alt="Course Picture">
-               <div class="card-body">
-                 <h5 class="card-title">{{ course.display_name }}</h5>
-                 <p class="card-text">
-                    {% if course.start_display != None %}
-                    Starts: {{course.start_display}}
-                    {% else %}
-                    Starts: {{course.start}}
-                    {% endif %}
-                 </p>
-                 <hr>
-                 <a href="{% url 'about_course' course_id=course.id %}" class="btn btn-success">Enroll Now</a>
-               </div>
-          </div>
+                <!-- Courses -->
+                <div class="h4" id="courses"><strong>Available Courses</strong></div>
+          
+                {% for course in courses %}
+                  {% include "course_item.html" %}
+                {% endfor %}
+
+                
+                <!-- Instructors -->
+                <div class="h4 mx-sm-auto mt-5" id="instructors"><strong>Instructors</strong></div>
+                {% for expert in experts %}
+                  {% include "expert_item.html" %}
+                {% endfor %}
+                
+
+                <!-- About -->
+                <div class="h4 mt-5" id="about"><strong>About {{ partner.name }}</strong></div>
+                <div class="about-text mx-xs-auto mx-sm-auto w-100">
+                  {{ partner.description|safe }}
+                </div>
+
+            </div>
         </div>
         
-        <!-- if the course.id is 4, 6, 8, 10, 12 to push down the 5, 7 , 9 and 11 cards down -->
-        {% if course.id %}
-        <div class="col-md-12 col-lg-4"></div>
-        {% endif %}
         
-        {% endfor %}
-        
-    </div>
-
-    <!-- Instructions -->
-    <div class="partner-instructors row mt-5">
-      <div class="h4" id="instructors"><strong>Instructors</strong></div>
-      <div class="container">
-
-        <div class="row mt-3">
-          {% for expert in experts %}
-            {% include "expert_item.html" %}
-          {% endfor %}
-        </div>
-
-      </div>
-    </div>
-
-    <!-- About -->
-    <div class="about-partner row mt-5">
-      <div class="h4" id="about"><strong>About {{ partner.name }}</strong></div>
-      <div class="about-text mx-xs-auto mx-sm-auto col-xs-12 col-8">
-        {{ partner.description|safe }}
-      </div>
     </div>
   </div>
 
