@@ -33,6 +33,11 @@
       margin-left: auto;
       margin-right: auto;
   }
+  
+  #instruct {
+      margin-left: 28px;
+      margin-right: 28px;
+  }
 
   .backgcolor {
       background-color: #e8e8e8;
@@ -196,10 +201,6 @@
 
   @media (max-width: 991px) {
   
-      div#fb-partner, div#domain-partner {
-          padding-left: 13rem;
-      }
-
       .links, .card-text, .navbar-nav {
           text-align: center;
       }
@@ -246,10 +247,6 @@
 
   @media (min-width: 667px) and (max-width: 768px) {
   
-       div#fb-partner, div#domain-partner, div#location-partner {
-          padding-left: 8.7rem;
-      }
-
       .hero-partner {
           background-image: url('{{ partner.banner_mobile_url }}');
           min-height: 29rem;
@@ -318,10 +315,6 @@
   }
 
   @media (max-width: 420px) {
-       div#fb-partner, div#domain-partner, div#location-partner {
-          padding-left: 5.8rem;
-      }
-  
   
       .hero-partner {
           min-height: 17rem;
@@ -333,10 +326,6 @@
   }
 
   @media (max-width: 375px) {
-       div#fb-partner, div#domain-partner, div#location-partner {
-          padding-left: 4.5rem;
-      }
-  
   
       .hero-partner {
           min-height: 16rem;
@@ -344,10 +333,6 @@
   }
 
   @media (max-width: 320px) {
-       div#fb-partner, div#domain-partner, div#location-partner {
-          padding-left: 4rem;
-      }
-  
       .hero-partner {
           min-height: 14rem;
       }
@@ -359,13 +344,14 @@
   }
 
   @media (max-width: 280px) {
-      div#fb-partner, div#domain-partner {
-          padding-left: 2.5rem;
-      }
-  
   
       .hero-partner {
           min-height: 12rem;
+      }
+      
+      #instruct {
+          margin-left: 18px;
+          margin-right: 18px;
       }
   }
 
@@ -466,8 +452,8 @@
       <div class="row">
         <div class="col-12">
           <ul id="hyperLink">
-            <a href="#courses"><li>Courses</li></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#instructors"><li>Instructors</li></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#courses"><li>Courses</li></a>
+            <a href="#instructors" id="instruct"><li>Instructors</li></a>
             <a href="#about"><li>About</li></a>
           </ul>
         </div>
