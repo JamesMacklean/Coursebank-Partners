@@ -1,8 +1,8 @@
 <div id="partner-course-{{ course.id }}" class="text-center mt-4 col-sm-6">
-  <div class="course-card mx-xs-auto card">
+  <div class="courses course-card mx-xs-auto card h-100">
     <img src="{{ course.course_image_url }}" class="img-thumbnail img-fluid card-img-top" alt="Course Picture">
     <div class="card-body">
-      <h5 class="card-title">{{ course.display_name }}</h5>
+      <h4 class="card-title">{{ course.display_name }}</h4>
       <p class="card-text">
         {% if course.start_display != None %}
         Starts: {{course.start_display}}
