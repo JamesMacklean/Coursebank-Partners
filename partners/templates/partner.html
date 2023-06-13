@@ -437,9 +437,11 @@
     <div class="container-md">
       <div class="row">
         <div class="col-12">
-          <ul id="hyperLink">
+          <ul id="hyperLink"> 
             <a href="#courses"><li>Courses</li></a>
+            {% if partner.org != 'thecentre' %}
             <a href="#instructors" id="instruct"><li>Instructors</li></a>
+            {% endif %}
             <a href="#about"><li>About</li></a>
           </ul>
         </div>
@@ -510,10 +512,14 @@
 
                 
                 <!-- Instructors -->
-                <div class="h4 mx-sm-auto mt-5" id="instructors"><strong>Instructors</strong></div>
-                {% for expert in experts %}
-                  {% include "expert_item.html" %}
-                {% endfor %}
+                {% if partner.org == 'thecentre' %}
+                <div class="h4 mx-sm-auto mt-5" id="instructors"> </div>
+                {% else %}
+                    <div class="h4 mx-sm-auto mt-5" id="instructors"><strong>Instructors</strong></div>
+                    {% for expert in experts %}
+                    {% include "expert_item.html" %}
+                    {% endfor %}
+                {% endif %}
                 
 
                 <!-- About -->
