@@ -438,11 +438,15 @@
       <div class="row">
         <div class="col-12">
           <ul id="hyperLink"> 
-            <a href="#courses"><li>Courses</li></a>
             {% if partner.org != 'thecentre' %}
+            <a href="#courses"><li>Courses</li></a>
             <a href="#instructors" id="instruct"><li>Instructors</li></a>
-            {% endif %}
             <a href="#about"><li>About</li></a>
+            {% else %}
+            <a href="#courses"><li>Courses</li></a>
+            <a href="" id="instruct"><li> </li></a>
+            <a href="#about"><li>About</li></a>
+            {% endif %}
           </ul>
         </div>
       </div>
