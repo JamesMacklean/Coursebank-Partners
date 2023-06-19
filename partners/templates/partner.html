@@ -78,6 +78,14 @@
     div#fb-partner a:hover, div#domain-partner a:hover {
       color: #6e6d7c;
   }
+    div#tw-partner a, div#domain-partner a {
+        text-decoration: none;
+        color: #000000;
+  }
+
+    div#tw-partner a:hover, div#domain-partner a:hover {
+        color: #6e6d7c;
+  }
 
   .about-text {
       text-align: justify;
@@ -487,6 +495,16 @@
                           <a href="{{ partner.socmed_url }}"><p>Partner Facebook</p></a>
                       </div>
                       </div><br>
+                  {% endif %}
+                  {% if partner.org == 'thecentre' %}
+                  <div id="tw-partner" class="row">
+                    <div class="col-2">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <div class="col-10">
+                        <a href="https://twitter.com/the_centre_ph"><p>Partner twitter</p></a>
+                    </div>
+                    </div><br>
                   {% endif %}
       
                   <!-- Address -->
