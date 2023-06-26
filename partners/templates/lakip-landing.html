@@ -111,43 +111,43 @@
         <section class="section-courses-container">
             <div class="row-courses pt-3 mt-3 gutter-2rem">
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 course-border">
                     <a href="/courses/course-v1:DICT+FSA-BIS001+2023_Q2/about">
                         <div class="course-item">
-                        <img class="img-item" width="100%" src="https://coursebank.ph/asset-v1:DICT+FSA-BIS001+2023_Q2+type@asset+block@Microsoft-productivity-Tools-v1.jpg" />
+                        <img class="mb-3 img-item" width="100%" src="https://coursebank.ph/asset-v1:DICT+FSA-BIS001+2023_Q2+type@asset+block@Microsoft-productivity-Tools-v1.jpg" />
                         <div class="course-details-container">
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center p-2">
                         <p class="course-description mt-2 pb-3 lakip"> Microsoft Productivity Tools [Bisaya]</p>
                         </div>
-                        <p class="course-start lakip">Course</p>
+                        <p class="course-start lakip p-2">Course</p>
                         </div>
                         </div>
                     </a>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 course-border course-border">
                     <a href="/courses/course-v1:DICT+FSA-BIS002+2023_Q2/about">
                         <div class="course-item">
-                        <img class="img-item" width="100%" src="https://coursebank.ph/asset-v1:DICT+FSA-BIS002+2023_Q2+type@asset+block@Navigating-Google-Workspace-v1.jpg" />
+                        <img class="mb-3 img-item" width="100%" src="https://coursebank.ph/asset-v1:DICT+FSA-BIS002+2023_Q2+type@asset+block@Navigating-Google-Workspace-v1.jpg" />
                         <div class="course-details-container">
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center p-2">
                         <p class="course-description mt-2 pb-3 lakip"> Navigating Google Workspace [Bisaya]</p>
                         </div>
-                        <p class="course-start lakip">Course</p>
+                        <p class="course-start lakip p-2">Course</p>
                         </div>
                         </div>
                     </a>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 course-border">
                     <a href="courses/course-v1:DICT+FSA-BIS003+2023_Q2/about">
                         <div class="course-item">
-                        <img class="img-item" width="100%" src="https://coursebank.ph/asset-v1:DICT+FSA-BIS003+2023_Q2+type@asset+block@Canva_for_Graphic_Design.png" />
+                        <img class="mb-3 img-item" width="100%" src="https://coursebank.ph/asset-v1:DICT+FSA-BIS003+2023_Q2+type@asset+block@Canva_for_Graphic_Design.png" />
                         <div class="course-details-container">
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center p-2">
                         <p class="course-description mt-2 pb-3 lakip"> Canva for Graphic Design [Bisaya]</p>
                         </div>
-                        <p class="course-start lakip">Course</p>
+                        <p class="course-start lakip p-2">Course</p>
                         </div>
                         </div>
                     </a>
@@ -159,7 +159,7 @@
 
 <div id="start-learning" class="text-center mt-3 p-5">
     <h2 class="mb-3 lakip text-white">Start Learning. It's Free.</h2>
-        <p class="mb-2 lakip">The local DICT online courses are free for everyone. Apply for access and wait for your invite via email. <br>
+        <p class="mb-5 lakip">The local DICT online courses are free for everyone. Apply for access and wait for your invite via email. <br>
             Meanwhile, make sure to have registered an account at coursebank.ph.</p>
         <a href="#" class="btn btn-lakip mt-2 lakip">APPLY NOW</a>
 </div>
@@ -176,7 +176,7 @@
         <div class="row gutter-2rem">
             <h2 class="mb-5 text-center lakip fw-bold">PARTNERS</h2>
             <div class="lakip-partners">
-                <img src="https://coursebank-static-assets-tmtg.s3.ap-northeast-1.amazonaws.com/lakip/lakip-cb.png" alt="coursebank" width="260px" height="200px">
+                <img src="https://coursebank-static-assets-tmtg.s3.ap-northeast-1.amazonaws.com/lakip/lakip-cb.png" alt="coursebank" width="270px" height="200px">
                 <img src="https://coursebank-static-assets-tmtg.s3.ap-northeast-1.amazonaws.com/lakip/lakip-deped.png" alt="DepEd Region 10" width="200">
             </div>
         </div>
@@ -219,6 +219,10 @@
 <style>
 .lakip{
     font-family: 'Montserrat', sans-serif !important;
+}
+h2.lakip{
+    font-size: 2rem;
+    font-weight: 600;
 }
 .lakip-landing{
     height: 87vh;
@@ -295,7 +299,7 @@
     opacity: 100%;
 }
 .contained-wrapper{
-    padding: 0 20%;
+    padding: 0 15%;
 }
 {% comment %} CUSTOM nav {% endcomment %}
 .slideBtn{
@@ -344,6 +348,8 @@
 }
 .btn-lakip{
     background-color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
 .lakip-partner-container{
     height: 100vh;
@@ -367,6 +373,7 @@
     display:flex;
     flex-direction: row;
     gap: 30px;
+    padding: 20px 10%;
 }
 /* ACCORDION */
 .accordion1{
