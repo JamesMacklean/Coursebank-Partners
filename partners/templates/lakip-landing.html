@@ -106,7 +106,7 @@
         </p>
   </div>
 
-    <div id="courses" class="p-5 contained-wrapper">
+    <div id="courses" class="p-3 contained-wrapper">
         <h2 class="mb-2 pt-5 text-center lakip fw-bold">COURSES</h2>
         <section class="section-courses-container">
             <div class="row-courses pt-3 mt-3 gutter-2rem">
@@ -164,7 +164,7 @@
         <a href="#" class="btn btn-lakip mt-2 lakip">APPLY NOW</a>
 </div>
 
-<div id="partners" class="contained-wrapper lakip-partner-container">
+<div id="partners" class="contained-wrapper lakip-partner-container p-5">
     <section class="section-courses-container">
         <div class="row pt-3 mt-3 gutter-2rem">
             <h2 class="mb-5 mt-3 text-center lakip fw-bold">PROPONENTS</h2>
@@ -296,8 +296,7 @@ h2.lakip{
 .swiper-overlay-2 p{
     position: absolute;
     top: 70%;
-    left: 30%;
-    transform: translate(-50%, -50%);
+    transform: translate(10%, -50%);
     text-align: left;
     opacity: 100%;
 }
@@ -316,7 +315,8 @@ h2.lakip{
     background: #fff !important;
 }
 .about-lakip{
-    height: 100vh;
+    max-height: 100vh;
+    min-height: 700px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -355,7 +355,8 @@ h2.lakip{
     border-radius: 5px;
 }
 .lakip-partner-container{
-    height: 100vh;
+    max-height: 100vh;
+    min-height: 800px;
     display: grid;
     align-items: center;
 }
@@ -425,25 +426,6 @@ h2.lakip{
 html {
     scroll-behavior: smooth !important;
   }
-  
-@media (max-width: 420px){
-    .swiper-overlay-2 p {
-        top: 70% !important;
-        transform: translate(12%, -50%) !important;
-    }
-    .about-lakip {
-        height: 700px !important;
-    }
-    .row-courses {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 50px !important;
-        padding: 20px 15% !important;
-    }
-    .lakip-partner-container{
-        height:1000px !important;
-    }
-}
 </style>
 
 <!-- Swiper JS -->
